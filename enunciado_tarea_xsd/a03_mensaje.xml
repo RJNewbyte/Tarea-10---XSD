@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<men:mensaje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://marcosruiz.github.io/assets/img/tarea-xsd a03_mensaje.xsd"
+  xmlns:men="https://marcosruiz.github.io/assets/img/tarea-xsd">
+  <origen>
+    <nombre>Ana Sanz Tin</nombre>
+    <ciudad>Pamplona</ciudad>
+  </origen>
+  <destino>
+    <nombre>Iker Rubio Mol</nombre>
+    <ciudad>Sevilla</ciudad>
+  </destino>
+  <men:asunto>¡Vuelve pronto!</men:asunto>
+</men:mensaje>

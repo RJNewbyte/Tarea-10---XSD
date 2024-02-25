@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fichas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="a11_inicialesAlReves.xsd">
+  <ficha>
+    <nombre>Ana Sanz Tin</nombre>
+    <iniciales>AST</iniciales>
+    <edad>22</edad>
+    <inicialesAlReves>TSA</inicialesAlReves>
+  </ficha>
+  <ficha>
+    <nombre>Iker Bravo Mol</nombre>
+    <iniciales>IBM</iniciales>
+    <edad>23</edad>
+    <inicialesAlReves>MBI</inicialesAlReves>
+  </ficha>
+</fichas>

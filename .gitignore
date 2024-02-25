@@ -1,0 +1,22 @@
+# Exclude macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Exclude macOS folder attributes
+__MACOSX/
+
+# Exclude macOS thumbnail files
+._*
+
+# Exclude macOS files that store extended file attributes
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# Exclude macOS temporary files
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk

@@ -1,0 +1,9 @@
+<ciudad>Roma</ciudad>
+
+<fechaDeNacimiento>1996-12-18</fechaDeNacimiento>
+
+<hora>18:29:45</hora>
+
+<nota>7.5</nota>
+
+<apto>true</apto>
