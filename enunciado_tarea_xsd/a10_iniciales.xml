@@ -8,17 +8,17 @@
   </ficha>
   <ficha>
     <nombre>Benito Antonio Martínez Ocasio</nombre>
-    <iniciales>BAMO</iniciales>
+    <iniciales>BMO</iniciales>
     <edad>23</edad>
   </ficha>
   <ficha>
-    <iniciales>ALO</iniciales>
     <nombre>Ada Lovelace</nombre>
+    <iniciales>ALO</iniciales>
     <edad>24</edad>
   </ficha>
   <ficha>
     <nombre>pablo ruiz picasso</nombre>
-    <iniciales>prp</iniciales>
+    <iniciales>PRP</iniciales>
     <edad>24</edad>
   </ficha>
 </fichas>
