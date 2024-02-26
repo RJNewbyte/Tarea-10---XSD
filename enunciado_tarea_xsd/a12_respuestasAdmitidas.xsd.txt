@@ -1,7 +1,8 @@
 <xs:element name="respuesta">
   <xs:simpleType>
     <xs:restriction base="xs:string">
-      <xs:pattern value="[ABCDE]" />
+      <xs:pattern value="A|B|C|D" />
     </xs:restriction>
   </xs:simpleType>
 </xs:element>
+<!-- Podríamos usar una restriccion de tipo enumeration en lugar de pattern -->
