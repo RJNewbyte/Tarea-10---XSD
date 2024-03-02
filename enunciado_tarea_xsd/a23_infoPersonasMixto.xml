@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<personas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="a23_infoPersonasMixto.xsd">
+    <persona>
+        <nombre>Eva</nombre>
+    <ciudad>París</ciudad>
+    <anios>25</anios>
+    </persona>
+    <persona>
+        <nombre>Giovani</nombre>
+    <ciudad>Florencia</ciudad>
+    <anios>25</anios>
+    </persona>
+</personas>
