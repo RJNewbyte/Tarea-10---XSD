@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:element name="fichas">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="ficha" type="infoPersonaAmpliada" maxOccurs="unbounded" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:element name="fichas">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="ficha" type="infoPersonaAmpliada2" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:complexType name="infoPersonaAmpliada2">
+<xs:complexContent>
+  <xs:extension base="infoPersonaAmpliada">
+    <xs:sequence>
+      <xs:element name="telefono" type="valida_telefono"></xs:element>
+    </xs:sequence>
+  </xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
   <xs:complexType name="infoPersonaAmpliada">
     <xs:complexContent>
@@ -32,6 +42,12 @@
     <xs:restriction base="xs:integer">
       <xs:minExclusive value="-1" />
       <xs:maxExclusive value="131" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="valida_telefono">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{9}"></xs:pattern>
     </xs:restriction>
   </xs:simpleType>
 
