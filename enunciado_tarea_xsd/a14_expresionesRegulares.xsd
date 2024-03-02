@@ -1,24 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<expresiones-regulares xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:noNamespaceSchemaLocation="a14_expresionesRegulares.xsd">
-   <expresiones>
-      <expresion1>Capítulo 0</expresion1>
-      <expresion2>Capítulo 0</expresion2>
-      <expresion3>Capítulo 1</expresion3>
-      <expresion4>Capítulo 0</expresion4>
-      <expresion5>aZ</expresion5>
-      <expresion6>ABBC</expresion6>
-      <expresion7>RSS</expresion7>
-      <expresion8>COD645pera</expresion8>
-   </expresiones>
-   <expresiones>
-      <expresion1>Capítulo 9</expresion1>
-      <expresion2>Capítulo 99</expresion2>
-      <expresion3>Capítulo 99</expresion3>
-      <expresion4>Capítulo 99999</expresion4>
-      <expresion5>?Z</expresion5>
-      <expresion6>ABBBBBC</expresion6>
-      <expresion7>RSSSSSSSSSSS7</expresion7>
-      <expresion8>COD646manzana</expresion8>
-   </expresiones>
-</expresiones-regulares>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- RESTRICCIONES -->
+
+<!-- 1. “Capítulo 0”, “Capítulo 1”, “Capítulo 2”… “Capítulo 9”. (Solo se permite un dígito).-->
+<xs:simpleType name="restriccion1">
+   <xs:restriction base="xs:string">
+      <xs:pattern value="Capítulo \d"></xs:pattern>
+   </xs:restriction>
+</xs:simpleType>
+
+<!-- 2. “Capítulo 0”, “Capítulo 1”, “Capítulo 2”… “Capítulo 99”. (Uno o dos dígitos).-->
+<xs:simpleType name="restriccion2">
+   <xs:restriction base="xs:string">
+      <xs:pattern value="Capítulo \d{1,2}"></xs:pattern>
+   </xs:restriction>
+</xs:simpleType>
+
+<!-- 3. “Capítulo 1”, “Capítulo 2”, “Capítulo 3”… “Capítulo 99”. (No se permite “Capítulo 0”).-->
+<xs:simpleType name="restriccion3">
+   <xs:restriction base="xs:string">
+      <xs:pattern value="Capítulo ([1-9]|[1-9][0-9])"></xs:pattern>
+   </xs:restriction>
+</xs:simpleType>
+
+<!-- 4. “Capítulo 0”, “Capítulo 1”, “Capítulo 2”… “Capítulo 99”… “Capítulo 100”… (Uno o más dígitos).-->
+<xs:simpleType name="restriccion4">
+   <xs:restriction base="xs:string">
+      <xs:pattern value="Capítulo \d+"></xs:pattern>
+   </xs:restriction>
+</xs:simpleType>
+
+<!-- 5. Cualquier valor de dos caracteres, cuyo primer carácter sea distinto de un dígito (0-9) y cuyo 
+        segundo carácter sea “Z”: “aZ”… “zZ”, “AZ”… “ZZ”, “?Z”, “=Z”, “*Z”…-->
+<xs:simpleType name="restriccion5">
+   <xs:restriction base="xs:string">
+      <xs:pattern value="\D."></xs:pattern>
+   </xs:restriction>
+</xs:simpleType>
+
+<!-- 6. “ABBC”, “ABBBC”, “ABBBBC”, “ABBBBBC”.-->
+<xs:simpleType name="restriccion6">
+   <xs:restriction base="xs:string">
+      <xs:pattern value="AB+C"></xs:pattern>
+   </xs:restriction>
+</xs:simpleType>
+
+<!-- 7. El primer carácter debe ser “R”. A continuación, deben aparecer obligatoriamente dos o más “S”. 
+   Finalmente, puede aparecer o no, un dígito del 3 al 8: “RSS”, “RSSS”… “RSS3”… “RSS8”, “RSSS3”… 
+   “RSSS8”… “RSSSSSSSSSSS7”…-->
+   <xs:simpleType name="restriccion7">
+      <xs:restriction base="xs:string">
+         <xs:pattern value="RSS+[345678]?"></xs:pattern>
+      </xs:restriction>
+   </xs:simpleType>
+
+   <!-- 8. Cualquier valor que contenga en primer lugar “COD”, después tres dígitos (0-9) y, finalmente, 
+           uno o más caracteres cualesquiera: “COD645pera”, “COD646manzana”…-->
+   <xs:simpleType name="restriccion8">
+      <xs:restriction base="xs:string">
+         <xs:pattern value="COD\d{3}\D+"></xs:pattern>
+      </xs:restriction>
+   </xs:simpleType>
+   
+   <!-- ESTRUCTURA -->
+   
+   <xs:element name="expresiones-regulares">
+   <xs:complexType>
+      <xs:sequence>
+         <xs:element name="expresiones" maxOccurs="unbounded">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="expresion1" type="restriccion1"/>
+                  <xs:element name="expresion2" type="restriccion2"/>
+                  <xs:element name="expresion3" type="restriccion3"/>
+                  <xs:element name="expresion4" type="restriccion4"/>
+                  <xs:element name="expresion5" type="restriccion5"/>
+                  <xs:element name="expresion6" type="restriccion6"/>
+                  <xs:element name="expresion7" type="restriccion7"/>
+                  <xs:element name="expresion8" type="restriccion8"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+</xs:element>
+</xs:schema>
