@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="factura">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="datosEmisor" type="emisor"></xs:element>
+                <xs:element name="datosCliente" type="cliente"></xs:element>
+                <xs:element name="detalleFactura"></xs:element>
+            </xs:all>
+            <xs:attribute name="número" type="xs:positiveInteger" use="required"></xs:attribute>
+            <xs:attribute name="fecha" type="xs:date" use="required"></xs:attribute>
+            <xs:attribute name="moneda" fixed="Euro"></xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="tipoTexto">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="5"></xs:minLength>
+            <xs:maxLength value="20"></xs:maxLength>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="cif">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{8}-[A-Z]"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:group name="grupoPersona">
+        <xs:sequence>
+            <xs:element name="nombre" type="tipoTexto"></xs:element>
+            <xs:element name="cif" type="cif"></xs:element>
+            <xs:element name="teléfono" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:group>
+
+    <xs:complexType name="emisor">
+        <xs:group ref="grupoPersona"></xs:group>
+    </xs:complexType>
+
+    <xs:complexType name="cliente">
+        <xs:group ref="grupoPersona"></xs:group>
+    </xs:complexType>
+
+</xs:schema>
