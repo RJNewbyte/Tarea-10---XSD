@@ -2,7 +2,7 @@
 <registro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="a26_registroConexiones.xsd">
   <usuario identificador="U123">
-    <apellidos-y-nombre>Sanz Tapia,Ana</apellidos-y-nombre>
+    <apellidosYNombre>Sanz Tapia,Ana</apellidosYNombre>
     <email>asanz@jmail.com</email>
     <conexiones>
       <conexión fecha="2014-02-23" hora="19:15:40">122</conexión>
@@ -17,7 +17,7 @@
       <conexión fecha="2014-02-25" hora="20:33:55">390</conexión>
     </conexiones>
   </usuario>
-  <empleado identificador="E4">
+  <empleado identificador="O4">
     <apellidosYNombre>Vera Gil,Marta</apellidosYNombre>
     <email>mvera@yajoo.es</email>
     <conexiones />
