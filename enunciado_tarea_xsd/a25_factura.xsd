@@ -6,7 +6,7 @@
             <xs:all>
                 <xs:element name="datosEmisor" type="emisor"></xs:element>
                 <xs:element name="datosCliente" type="cliente"></xs:element>
-                <xs:element name="detalleFactura"></xs:element>
+                <xs:element name="detalleFactura" type="factura"></xs:element>
             </xs:all>
             <xs:attribute name="número" type="xs:positiveInteger" use="required"></xs:attribute>
             <xs:attribute name="fecha" type="xs:date" use="required"></xs:attribute>
@@ -27,11 +27,17 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:simpleType name="telefono">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{9}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:group name="grupoPersona">
         <xs:sequence>
             <xs:element name="nombre" type="tipoTexto"></xs:element>
             <xs:element name="cif" type="cif"></xs:element>
-            <xs:element name="teléfono" type="xs:string"></xs:element>
+            <xs:element name="teléfono" type="telefono"></xs:element>
         </xs:sequence>
     </xs:group>
 
@@ -42,5 +48,41 @@
     <xs:complexType name="cliente">
         <xs:group ref="grupoPersona"></xs:group>
     </xs:complexType>
+
+    <xs:complexType name="factura">
+        <xs:sequence>
+            <xs:element name="línea" maxOccurs="15">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="descripción"></xs:element>
+                        <xs:element name="cantidad" type="xs:positiveInteger"></xs:element>
+                        <xs:element name="oferta" minOccurs="0"/>
+                        <xs:element name="pvp" type="tipoPrecio"></xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="código-artículo" type="xs:ID" use="required"></xs:attribute>
+                    <xs:attribute name="tipo" type="tipoArtículo" use="optional">
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="importe" type="tipoPrecio" use="required"></xs:attribute>
+    </xs:complexType>
+
+    <xs:simpleType name="tipoPrecio">
+        <xs:restriction base="xs:decimal">
+            <xs:minExclusive value="0"></xs:minExclusive>
+            <xs:maxInclusive value="999"></xs:maxInclusive>
+            <xs:totalDigits value="5"></xs:totalDigits>
+            <xs:fractionDigits value="2"></xs:fractionDigits>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoArtículo">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Libro"></xs:enumeration>
+            <xs:enumeration value="DVD"></xs:enumeration>
+            <xs:enumeration value="Varios"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
 
 </xs:schema>
