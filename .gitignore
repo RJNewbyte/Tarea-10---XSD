@@ -1,20 +1,24 @@
-# Exclude macOS system files
+# General
 .DS_Store
 .AppleDouble
 .LSOverride
 
-# Exclude macOS folder attributes
-__MACOSX/
+# Icon must end with two 
+Icon
 
-# Exclude macOS thumbnail files
+
+# Thumbnails
 ._*
 
-# Exclude macOS files that store extended file attributes
-.Spotlight-V100
-.Trashes
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
 .fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
 
-# Exclude macOS temporary files
+# Directories potentially created on remote AFP share
 .AppleDB
 .AppleDesktop
 Network Trash Folder
